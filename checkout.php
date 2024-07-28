@@ -68,10 +68,12 @@ if (isset($_SESSION['id_pelanggan'])) {
 
         // Commit transaction
         $db->commit();
-
-        // Redirect to a confirmation or home page
-        header('Location: confirmation.php?status=success');
-        exit();
+?>
+        <script type="text/javascript">
+            alert('Data berhasil ditambahkan!');
+            window.location = 'index.php';
+        </script>
+<?php
     } catch (Exception $e) {
         // Rollback transaction
         $db->rollback();
