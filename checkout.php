@@ -153,7 +153,11 @@ if (isset($_SESSION['id_pelanggan'])) {
                 $item = explode(' ', $item);
                 foreach($item as $value) {
                     // Check the product is already recomended today
-                    $query = "SELECT * FROM rekomendasi_produk WHERE id_pelanggan = ? AND id_produk = ? AND MONTH(tanggal_rekomendasi) = MONTH(NOW()) AND YEAR(tanggal_rekomendasi) = YEAR(NOW())";
+                    $query = "SELECT * FROM rekomendasi_produk 
+                        WHERE id_pelanggan = ? AND id_produk = ? 
+                        AND DAY(tanggal_rekomendasi) = DAY(NOW())
+                        AND MONTH(tanggal_rekomendasi) = MONTH(NOW()) 
+                        AND YEAR(tanggal_rekomendasi) = YEAR(NOW())";
                     $stmt = $db->prepare($query);
                     $stmt->bind_param('ii', $id_pelanggan, $value);
                     $stmt->execute();

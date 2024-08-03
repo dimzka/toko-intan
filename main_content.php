@@ -26,5 +26,6 @@
             </div>
         </div>
     </div>
+    <?php include 'rekomendasi.php'; ?>
 </div>
 

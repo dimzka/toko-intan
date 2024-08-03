@@ -94,7 +94,10 @@ $db->close();
                 </div>
             </div>
         </div>
+        
+        <?php include 'rekomendasi.php'; ?>
     </div>
+    
 
     <?php include 'footer.php'; ?>
 </body>
