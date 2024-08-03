@@ -29,6 +29,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
                     </a>
                 </li>
             </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="index.php?page=validate-transaksi" class="nav-link <?php echo $current_page == 'validate-transaksi' ? 'active' : ''; ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Validasi Transaksi</p>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="nav-item">
             <a href="config/logout.php" class="nav-link text-red">

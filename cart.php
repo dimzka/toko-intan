@@ -1,5 +1,5 @@
-<?php
-session_start();
+<?php 
+include 'header.php';
 include 'petugas/config/config.php';
 
 // Connect to the database
@@ -29,9 +29,20 @@ if ($id_pelanggan) {
 }
 
 $db->close();
+function check_login() {
+
+    if (!isset($_SESSION['id_pelanggan'])) {
+        header('Location: login.php');
+        exit();
+    }
+}
+// Panggil fungsi cek login
+check_login(); 
 ?>
 
-<div class="cart-items">
+<?php include 'navbar_categories.php'; ?>
+
+<div class="container">
     <?php if (count($cartItems) > 0): ?>
         <?php foreach ($cartItems as $item): ?>
             <div class="cart-item d-flex align-items-center mb-2">
@@ -41,38 +52,15 @@ $db->close();
                     <div>Rp <?php echo number_format($item['harga'], 0, ',', '.'); ?></div>
                     <div>Jumlah: <?php echo htmlspecialchars($item['jumlah']); ?></div>
                 </div>
-                <button class="btn btn-danger btn-sm btn-remove" data-id="<?php echo htmlspecialchars($item['id_produk']); ?>">Hapus</button>
+                <button class="btn btn-danger btn-sm btn-remove" data-id="<?php echo htmlspecialchars($item['id_produk']); ?>" onclick="setTimeout(function() { window.location.reload(); }, 500)">Hapus</button>
             </div>
         <?php endforeach; ?>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="transaksi.php">Checkout</a>
+        <a class="dropdown-item" href="transaksi.php">Proceed to Checkout</a>
     <?php else: ?>
         <div class="text-center">No items in cart</div>
     <?php endif; ?>
 </div>
 
-<style>
-.cart-items {
-    max-height: 400px; /* Limit the height of the cart dropdown */
-    overflow-y: auto; /* Add scroll if items exceed height */
-}
 
-.cart-item {
-    border-bottom: 1px solid #ddd; /* Add border between items */
-    padding: 10px; /* Add padding */
-}
-
-.cart-item-img {
-    width: 50px; /* Set a fixed width for images */
-    height: 50px; /* Set a fixed height for images */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-}
-
-.cart-item-info {
-    flex: 1; /* Allow this div to grow and fill available space */
-}
-
-.btn-remove {
-    margin-left: 10px; /* Add space between item info and remove button */
-}
-</style>
+<?php include 'footer.php'; ?>

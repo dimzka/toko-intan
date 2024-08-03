@@ -27,9 +27,9 @@ $stmt = $db->prepare($query);
 $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $result = $stmt->get_result();
-$products = [];
+$products2 = [];
 while ($row = $result->fetch_assoc()) {
-    $products[] = $row;
+    $products2[] = $row;
 }
 
 // Fetch cart items if user is logged in
@@ -76,8 +76,8 @@ $db->close();
         <div class="tab-content" id="productTabsContent">
             <div class="tab-pane fade show active" id="all-products" role="tabpanel" aria-labelledby="all-products-tab">
                 <div class="product-carousel mt-4">
-                    <?php if (!empty($products)) : ?>
-                        <?php foreach ($products as $product) : ?>
+                    <?php if (!empty($products2)) : ?>
+                        <?php foreach ($products2 as $product) : ?>
                             <div class="card mb-4">
                                 <img src="petugas/image/<?php echo htmlspecialchars($product['gambar']); ?>" class="card-img-top img-fluid" alt="<?php echo htmlspecialchars($product['nama']); ?>">
                                 <div class="card-body">
@@ -94,7 +94,10 @@ $db->close();
                 </div>
             </div>
         </div>
+        
+        <?php include 'rekomendasi.php'; ?>
     </div>
+    
 
     <?php include 'footer.php'; ?>
 </body>

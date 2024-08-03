@@ -14,6 +14,9 @@
                         </a>
                     </li>
                 <?php endforeach; ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.php">Lihat Cart</a>
+                </li>
             </ul>
         </div>
     </div>

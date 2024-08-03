@@ -118,8 +118,9 @@ $db->close();
     </div>
     <div class="ml-auto">
         <?php if (isset($_SESSION['id_pelanggan'])): ?>
+            <a class="navbar-text" href="riwayat.php">Lihat Transaksi</a>
             <span class="navbar-text mr-3">
-                Hi, <?php echo htmlspecialchars($_SESSION['nama']); ?>
+                Hi, <?php echo htmlspecialchars($_SESSION['nama']); ?> 
             </span>
             <a href="logout.php" class="btn btn-outline-danger">Logout</a>
         <?php else: ?>
