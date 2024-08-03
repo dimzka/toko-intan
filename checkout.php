@@ -57,6 +57,21 @@ if (isset($_SESSION['id_pelanggan'])) {
         $stmt->bind_param('di', $total, $id_transaksi);
         $stmt->execute();
 
+        // Get transaction id
+        $query = "SELECT id_transaksi FROM transaksi WHERE id_pelanggan = ? ORDER BY id_transaksi DESC LIMIT 1";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param('i', $id_pelanggan);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $id_transaksi = $row['id_transaksi'];
+
+        // Update latest bukti
+        $query = "UPDATE bukti SET id_transaksi = ? WHERE id_transaksi IS NULL";
+        $stmt = $db->prepare($query);
+        $stmt->bind_param('i', $id_transaksi);
+        $stmt->execute();
+
         // Commit transaction
         $db->commit();
     } catch (Exception $e) {
