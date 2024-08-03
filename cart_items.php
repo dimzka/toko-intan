@@ -45,7 +45,7 @@ $db->close();
             </div>
         <?php endforeach; ?>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="checkout.php">Checkout</a>
+        <a class="dropdown-item" href="transaksi.php">Checkout</a>
     <?php else: ?>
         <div class="text-center">No items in cart</div>
     <?php endif; ?>
