@@ -106,6 +106,9 @@ switch ($page) {
     case 'hapus-produk':
         include('hapus/hapus-produk.php');
         break;
+    case 'validate-transaksi':
+        include('data-pembayaran.php');
+        break;
     default:
         include('404.php');
         break;
