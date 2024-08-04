@@ -82,6 +82,7 @@ CREATE TABLE `cart_item` (
   `id_cart` int DEFAULT NULL,
   `id_produk` int DEFAULT NULL,
   `jumlah` int DEFAULT NULL,
+  `discount` int DEFAULT NULL,
   PRIMARY KEY (`id_cart_item`),
   KEY `id_cart` (`id_cart`,`id_produk`),
   KEY `id_produk` (`id_produk`),
