@@ -38,8 +38,8 @@
                         <img src="petugas/image/<?php echo htmlspecialchars($product['gambar']); ?>" class="card-img-top img-fluid" alt="<?php echo htmlspecialchars($product['nama']); ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlspecialchars($product['nama']); ?></h5>
-                            <p class="card-text">Harga: Rp <?php echo number_format($product['harga'], 0, ',', '.'); ?></p>
-                            <a href="add_to_cart.php?id_produk=<?php echo urlencode($product['id_produk']); ?>" class="btn btn-light">Add to Cart</a>
+                            <p class="card-text">Harga: Rp <del><?= number_format($product['harga'], 0, ',', '.');?></del> <?php echo number_format($product['harga'] - ($product['harga'] * 0.1), 0, ',', '.'); ?></p>
+                            <a href="add_to_cart.php?id_produk=<?php echo urlencode($product['id_produk']); ?>&discount=0.1" class="btn btn-light">Add to Cart</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

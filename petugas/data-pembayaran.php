@@ -9,6 +9,11 @@ if(isset($_GET['action'])) {
             $stmt = $db->prepare($query);
             $stmt->bind_param('i', $_GET['id']);
             $stmt->execute();
+
+            $query = "UPDATE transaksi SET status = 'Completed' WHERE id_transaksi = ?";
+            $stmt = $db->prepare($query);
+            $stmt->bind_param('i', $_GET['id_transaksi']);
+            $stmt->execute();
             break;
         case 'tolak':
             $query = "UPDATE bukti SET status = 2 WHERE id = ?";
@@ -83,11 +88,11 @@ if (!$result) {
                   </td>
                   <td>
                     <?php if($row['status'] == 0): ?>
-                        <a href="index.php?page=validate-transaksi&action=setuju&id=<?php echo $row['id_bukti']; ?>" class="btn btn-success" onclick="return confirm('Apakah Anda yakin ingin menyetujui transaksi ini?')">
+                        <a href="index.php?page=validate-transaksi&action=setuju&id=<?php echo $row['id_bukti']; ?>&id_transaksi=<?php echo $row['id_transaksi']; ?>" class="btn btn-success" onclick="return confirm('Apakah Anda yakin ingin menyetujui transaksi ini?')">
                             <i class="fas fa-check"></i>
                             Setuju
                         </a>
-                        <a href="index.php?page=validate-transaksi&action=tolak&id=<?php echo $row['id_bukti']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin membatalkan transaksi ini?')">
+                        <a href="index.php?page=validate-transaksi&action=tolak&id=<?php echo $row['id_bukti']; ?>&id_transaksi=<?php echo $row['id_transaksi']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin membatalkan transaksi ini?')">
                             <i class="fas fa-times"></i>
                             Tolak
                         </a>

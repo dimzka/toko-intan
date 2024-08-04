@@ -8,6 +8,7 @@ if (!$db) {
     die("Database connection failed: " . $db->connect_error);
 }
 
+
 // Check if user is logged in
 if (!isset($_SESSION['id_pelanggan'])) {
     header("Location: login.php");
@@ -52,6 +53,10 @@ if ($result->num_rows > 0) {
 } else {
     // Add new product to the cart
     $query = "INSERT INTO cart_item (id_cart, id_produk, jumlah) VALUES (?, ?, 1)";
+    if(isset($_GET['discount'])) {
+        $query = "INSERT INTO cart_item (id_cart, id_produk, jumlah, discount) VALUES (?, ?, 1, 1)";
+    }
+
     $stmt = $db->prepare($query);
     $stmt->bind_param('ii', $id_cart, $id_produk);
     $stmt->execute();
