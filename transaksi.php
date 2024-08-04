@@ -48,16 +48,17 @@ check_login();
         <?php if (count($cartItems) > 0): ?>
             <?php $total = 0; ?>
             <?php foreach ($cartItems as $item): ?>
-                <?php $total += $item['harga'] * $item['jumlah']; ?>
                 <div class="cart-item d-flex align-items-center mb-2">
                     <img src="petugas/image/<?php echo htmlspecialchars($item['gambar']); ?>" alt="<?php echo htmlspecialchars($item['nama']); ?>" class="cart-item-img">
                     <div class="cart-item-info flex-grow-1 ml-2">
                         <div><?php echo htmlspecialchars($item['nama']); ?></div>
                         <div>Rp 
                             <?php if($item['discount'] == 1) : ?>
+                                <?php $total += $item['harga'] * $item['jumlah'] - ($item['harga'] * $item['jumlah'] * 0.1); ?>
                                 <del><?= number_format($item['harga'], 0, ',', '.');?></del> 
                                 <?php echo number_format($item['harga'] - ($item['harga'] * 0.1), 0, ',', '.'); ?>
                             <?php else : ?>
+                                <?php $total += $item['harga'] * $item['jumlah']; ?>
                                 <?php echo number_format($item['harga'], 0, ',', '.'); ?>
                             <?php endif; ?>
                         </div>

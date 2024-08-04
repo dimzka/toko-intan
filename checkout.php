@@ -24,7 +24,7 @@ if (isset($_SESSION['id_pelanggan'])) {
         $id_transaksi = $stmt->insert_id;
 
         // Get cart items
-        $query = "SELECT ci.id_produk, ci.jumlah, p.harga
+        $query = "SELECT ci.id_produk, ci.jumlah, p.harga, discount
                   FROM cart c
                   JOIN cart_item ci ON c.id_cart = ci.id_cart
                   JOIN produk p ON ci.id_produk = p.id_produk
@@ -35,6 +35,11 @@ if (isset($_SESSION['id_pelanggan'])) {
         $result = $stmt->get_result();
 
         while ($row = $result->fetch_assoc()) {
+            // Check harga discount
+            if($row['discount'] > 0) {
+                $row['harga'] = $row['harga'] - ($row['harga'] * 0.1);
+            }
+
             // Insert into detail_transaksi
             $query = "INSERT INTO detail_transaksi (id_transaksi, id_produk, jumlah, harga) VALUES (?, ?, ?, ?)";
             $stmt = $db->prepare($query);
@@ -180,10 +185,12 @@ if (isset($_SESSION['id_pelanggan'])) {
                     if ($result->num_rows > 0) {
                         continue;
                     } else {
-                        $sql = "INSERT INTO rekomendasi_produk (id_pelanggan, id_produk, tanggal_rekomendasi) VALUES (?, ?, now())";
-                        $stmt = $db->prepare($sql);
-                        $stmt->bind_param('ii', $id_pelanggan, $value);
-                        $stmt->execute();
+                        if($value != '') {
+                            $sql = "INSERT INTO rekomendasi_produk (id_pelanggan, id_produk, tanggal_rekomendasi) VALUES (?, ?, now())";
+                            $stmt = $db->prepare($sql);
+                            $stmt->bind_param('ii', $id_pelanggan, $value);
+                            $stmt->execute();
+                        }
                     }
                 }
             }
