@@ -16,7 +16,8 @@ if ($id_pelanggan) {
     $query = "SELECT bukti.*, t.*, bukti.status
             FROM bukti
             JOIN transaksi t ON bukti.id_transaksi = t.id_transaksi
-            WHERE t.id_pelanggan = ?";
+            WHERE t.id_pelanggan = ?
+            ORDER BY id desc";
     $stmt = $db->prepare($query);
     $stmt->bind_param('i', $id_pelanggan);
     $stmt->execute();
