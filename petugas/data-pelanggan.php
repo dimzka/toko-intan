@@ -6,7 +6,7 @@ $query = "SELECT * FROM pelanggan";
 $result = $db->query($query);
 
 if (!$result) {
-    die("Query Error: " . $db->error);
+  die("Query Error: " . $db->error);
 }
 ?>
 <!-- Main content -->
@@ -31,32 +31,26 @@ if (!$result) {
                 <tr>
                   <th>ID Pelanggan</th>
                   <th>Nama</th>
-                  <th>Email</th>
-                  <th>Password</th>
                   <th>Alamat</th>
                   <th>No Telp</th>
                   <th>Dibuat</th>
                 </tr>
               </thead>
               <tbody>
-                <?php while ($row = $result->fetch_assoc()): ?>
-                <tr>
-                  <td><?php echo htmlspecialchars($row['id_pelanggan']); ?></td>
-                  <td><?php echo htmlspecialchars($row['nama']); ?></td>
-                  <td><?php echo htmlspecialchars($row['email']); ?></td>
-                  <td><?php echo htmlspecialchars($row['password']); ?></td>
-                  <td><?php echo htmlspecialchars($row['alamat']); ?></td>
-                  <td><?php echo htmlspecialchars($row['no_telp']); ?></td>
-                  <td><?php echo htmlspecialchars($row['created_at']); ?></td>
-                </tr>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                  <tr>
+                    <td><?php echo htmlspecialchars($row['id_pelanggan']); ?></td>
+                    <td><?php echo htmlspecialchars($row['nama']); ?></td>
+                    <td><?php echo htmlspecialchars($row['alamat']); ?></td>
+                    <td><?php echo htmlspecialchars($row['no_telp']); ?></td>
+                    <td><?php echo htmlspecialchars($row['created_at']); ?></td>
+                  </tr>
                 <?php endwhile; ?>
               </tbody>
               <tfoot>
                 <tr>
                   <th>ID Pelanggan</th>
                   <th>Nama</th>
-                  <th>Email</th>
-                  <th>Password</th>
                   <th>Alamat</th>
                   <th>No Telp</th>
                   <th>Dibuat</th>
