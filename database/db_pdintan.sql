@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2024 at 04:34 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Waktu pembuatan: 04 Agu 2024 pada 17.12
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bukti`
+-- Struktur dari tabel `bukti`
 --
 
 CREATE TABLE `bukti` (
@@ -32,10 +32,10 @@ CREATE TABLE `bukti` (
   `id_transaksi` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL,
   `file` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `bukti`
+-- Dumping data untuk tabel `bukti`
 --
 
 INSERT INTO `bukti` (`id`, `id_transaksi`, `status`, `file`) VALUES
@@ -55,17 +55,17 @@ INSERT INTO `bukti` (`id`, `id_transaksi`, `status`, `file`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Struktur dari tabel `cart`
 --
 
 CREATE TABLE `cart` (
   `id_cart` int(11) NOT NULL,
   `id_pelanggan` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cart`
+-- Dumping data untuk tabel `cart`
 --
 
 INSERT INTO `cart` (`id_cart`, `id_pelanggan`, `created_at`) VALUES
@@ -74,7 +74,7 @@ INSERT INTO `cart` (`id_cart`, `id_pelanggan`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart_item`
+-- Struktur dari tabel `cart_item`
 --
 
 CREATE TABLE `cart_item` (
@@ -83,10 +83,10 @@ CREATE TABLE `cart_item` (
   `id_produk` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `discount` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cart_item`
+-- Dumping data untuk tabel `cart_item`
 --
 
 INSERT INTO `cart_item` (`id_cart_item`, `id_cart`, `id_produk`, `jumlah`, `discount`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `cart_item` (`id_cart_item`, `id_cart`, `id_produk`, `jumlah`, `disc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_transaksi`
+-- Struktur dari tabel `detail_transaksi`
 --
 
 CREATE TABLE `detail_transaksi` (
@@ -105,10 +105,10 @@ CREATE TABLE `detail_transaksi` (
   `id_produk` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
   `harga` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_transaksi`
+-- Dumping data untuk tabel `detail_transaksi`
 --
 
 INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_produk`, `jumlah`, `harga`) VALUES
@@ -9258,16 +9258,16 @@ INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_produ
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama`) VALUES
@@ -9287,7 +9287,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keluhan`
+-- Struktur dari tabel `keluhan`
 --
 
 CREATE TABLE `keluhan` (
@@ -9299,10 +9299,10 @@ CREATE TABLE `keluhan` (
   `status` varchar(12) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `keluhan`
+-- Dumping data untuk tabel `keluhan`
 --
 
 INSERT INTO `keluhan` (`id_keluhan`, `id_pelanggan`, `id_pengguna`, `saran`, `kritik`, `status`, `created_at`, `updated_at`) VALUES
@@ -9313,7 +9313,7 @@ INSERT INTO `keluhan` (`id_keluhan`, `id_pelanggan`, `id_pengguna`, `saran`, `kr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -9324,10 +9324,10 @@ CREATE TABLE `pelanggan` (
   `alamat` varchar(50) NOT NULL,
   `no_telp` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data untuk tabel `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `email`, `password`, `alamat`, `no_telp`, `created_at`) VALUES
@@ -9339,7 +9339,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `email`, `password`, `alamat`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -9350,22 +9350,22 @@ CREATE TABLE `pengguna` (
   `email` varchar(30) NOT NULL,
   `jabatan` varchar(10) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `password`, `email`, `jabatan`, `created_at`) VALUES
-(1, 'Admin User', 'admin', 'adminpassword', 'admin@example.com', 'admin', '2024-07-23 23:35:17'),
-(2, 'Penjualan User', 'penjualan', 'penjualanpasswor', 'penjualan@example.com', 'penjualan', '2024-07-23 23:35:17'),
-(3, 'Pemilik User', 'pemilik', 'pemilikpassword', 'pemilik@example.com', 'pemilik', '2024-07-23 23:35:17'),
+(1, 'Admin User', 'admin', 'admin', 'admin@example.com', 'admin', '2024-07-23 23:35:17'),
+(2, 'Penjualan User', 'penjualan', 'penjualan', 'penjualan@example.com', 'penjualan', '2024-07-23 23:35:17'),
+(3, 'Pemilik User', 'pemilik', 'pemilik', 'pemilik@example.com', 'pemilik', '2024-07-23 23:35:17'),
 (16, 'ikan', 'ikan', '$2y$10$zB.sieLpV', 'ikan@gmail.com', 'pemilik', '2024-07-27 19:13:35');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -9378,27 +9378,32 @@ CREATE TABLE `produk` (
   `id_kategori` int(11) DEFAULT NULL,
   `id_pengguna` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `deskripsi`, `harga`, `stok`, `gambar`, `id_kategori`, `id_pengguna`, `created_at`) VALUES
-(1, 'Chitato', 'Keripik kentang dengan rasa daging panggang', 10000, -60, 'chitato.jpeg', 2, 1, '2024-07-25 09:16:12'),
-(2, 'Taro', 'Snack stik rasa rumput laut', 8000, 42, 'taro.jpg', 2, 1, '2024-07-25 09:16:12'),
-(3, 'Oreo', 'Biskuit dengan krim vanila', 15000, 16, 'oreo.jpg', 3, 1, '2024-07-25 09:16:12'),
-(4, 'SilverQueen', 'Cokelat batangan dengan kacang mete', 20000, 14, 'silverqueen.jpeg', 11, 2, '2024-07-25 09:16:12'),
-(5, 'Indomie Goreng', 'Mie goreng instan', 3000, 199, 'indomie_goreng.jpg', 5, 2, '2024-07-25 09:16:12'),
-(6, 'Malkist Crackers', 'Biskuit malkist dengan gula', 7000, 60, 'malkist_crackers.jpg', 3, 2, '2024-07-25 09:16:12'),
-(7, 'Good Time', 'Kue kering dengan cokelat chip', 12000, 40, 'good_time.jpg', 10, 2, '2024-07-25 09:16:12'),
-(8, 'Cheese Stick', 'Stick keju renyah', 15000, 25, 'crot.jpg', 4, 1, '2024-07-25 09:16:12'),
-(25, 'ikan', 'ikan', 10000, 97, 'ngisibensin.jpg', 1, 2, '2024-07-26 07:47:53');
+(1, 'Aoka', 'roti aoka lezat nikmat rasa buah buahan coklat keju citarasa unik tekstur lembut', 115000, 500, 'Aoka.jpg', 7, 2, '2024-07-25 09:16:12'),
+(2, 'Pop Mie', 'Pop Mie adalah merek mie instan dalam bentuk kemasan cup', 140000, 500, 'Pop mie.jpg', 5, 2, '2024-07-25 09:16:12'),
+(3, 'Malkist Crackers', 'Roma Malkist Crackers Gula merupakan varian crackers dari brand Roma', 110000, 500, 'Malkist crackers.jpg', 3, 2, '2024-07-25 09:16:12'),
+(4, 'Nabati 500', 'Nabati adalah Wafer renyah dan ringan dengan krim yang sangat terasa.', 100000, 500, 'Nabati.jpg', 6, 2, '2024-07-25 09:16:12'),
+(5, 'Duo sus', 'Duosus adalah kue soes-kue soes kering mini', 52000, 500, 'Duosus.jpg', 10, 2, '2024-07-25 09:16:12'),
+(6, 'Malkist Coklat', 'Malkist Cokelat merupakan varian crackers', 110000, 500, 'Malkist Cokelat.jpg', 3, 2, '2024-07-25 09:16:12'),
+(7, 'Cannon Ball', 'Cannon Ball Cokelat Kunyah Bulet Enaknya', 120000, 500, 'Canon Ball.jpg', 1, 2, '2024-07-25 09:16:12'),
+(8, 'Better', 'Better merupakan biskuit yang memiliki lapisan coklat melimpah dengan kemasan ikoniknya merah-kuning yang dapat menjadi bagian untuk mengganjal perut.', 91000, 500, 'Better.jpg', 3, 2, '2024-07-25 09:16:12'),
+(25, 'Chitato Lite', 'Chitato Lite camilan asin yang terbuat dari keripik kentang. Terbuat dari kentang asli berkualitas yang iris tipis.', 110000, 500, 'Chitato lite.jpg', 2, 2, '2024-07-26 07:47:53'),
+(27, 'Sari Gandum Coklat', 'Biskuit roma sari gandum sandwich terbuat dari gandum pilihan, dengan susu di biskuitnya dan vitamin serta krim susu cokelat', 155000, 500, 'Sari gandum.jpg', 3, 2, '2024-08-04 15:04:10'),
+(28, 'Sosis Kimbo', 'Sosis Sapi Serbaguna siap masak ini begitu praktis karena dapat langsung diolah menjadi berbagai menu masakan yang nikmat', 100000, 500, 'Sosis kimbo.jpg', 4, 2, '2024-08-04 15:06:52'),
+(29, 'Sosis Sonice 1000', 'Sosis So Nice adalah sosis kemasan yang siap santap tanpa harus dimasak terlebih dulu.', 146167, 500, 'Sosis sonice.jpg', 4, 2, '2024-08-04 15:07:43'),
+(30, 'Walens Choco Shoes', 'Nissin walens choco shoes merupakan shoes kering yang renyah dan diisi dengan coklat yang legit.', 170000, 500, 'Walens Choco Soes.jpg', 10, 2, '2024-08-04 15:09:05'),
+(31, 'Yupi Kiss', 'Yupi Strawberry Kiss merupakan permen dengan tekstur kenyal sehingga asyik untuk dinikmati di waktu sibuk dan santai.', 105000, 500, 'Yupi kiss.jpg', 1, 2, '2024-08-04 15:12:04');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekomendasi_produk`
+-- Struktur dari tabel `rekomendasi_produk`
 --
 
 CREATE TABLE `rekomendasi_produk` (
@@ -9406,10 +9411,10 @@ CREATE TABLE `rekomendasi_produk` (
   `id_pelanggan` int(11) DEFAULT NULL,
   `id_produk` int(11) DEFAULT NULL,
   `tanggal_rekomendasi` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rekomendasi_produk`
+-- Dumping data untuk tabel `rekomendasi_produk`
 --
 
 INSERT INTO `rekomendasi_produk` (`id_rekomendasi_produk`, `id_pelanggan`, `id_produk`, `tanggal_rekomendasi`) VALUES
@@ -9425,7 +9430,7 @@ INSERT INTO `rekomendasi_produk` (`id_rekomendasi_produk`, `id_pelanggan`, `id_p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -9434,10 +9439,10 @@ CREATE TABLE `transaksi` (
   `tanggal` date DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tanggal`, `total`, `status`) VALUES
@@ -9954,21 +9959,21 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_pelanggan`, `tanggal`, `total`, `st
 --
 
 --
--- Indexes for table `bukti`
+-- Indeks untuk tabel `bukti`
 --
 ALTER TABLE `bukti`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_transaksi` (`id_transaksi`);
 
 --
--- Indexes for table `cart`
+-- Indeks untuk tabel `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id_cart`),
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- Indexes for table `cart_item`
+-- Indeks untuk tabel `cart_item`
 --
 ALTER TABLE `cart_item`
   ADD PRIMARY KEY (`id_cart_item`),
@@ -9976,7 +9981,7 @@ ALTER TABLE `cart_item`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `detail_transaksi`
+-- Indeks untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD PRIMARY KEY (`id_detail_transaksi`),
@@ -9984,13 +9989,13 @@ ALTER TABLE `detail_transaksi`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `keluhan`
+-- Indeks untuk tabel `keluhan`
 --
 ALTER TABLE `keluhan`
   ADD PRIMARY KEY (`id_keluhan`),
@@ -9998,19 +10003,19 @@ ALTER TABLE `keluhan`
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `pelanggan`
+-- Indeks untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`),
@@ -10018,7 +10023,7 @@ ALTER TABLE `produk`
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indexes for table `rekomendasi_produk`
+-- Indeks untuk tabel `rekomendasi_produk`
 --
 ALTER TABLE `rekomendasi_produk`
   ADD PRIMARY KEY (`id_rekomendasi_produk`),
@@ -10026,135 +10031,135 @@ ALTER TABLE `rekomendasi_produk`
   ADD KEY `id_produk` (`id_produk`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `bukti`
+-- AUTO_INCREMENT untuk tabel `bukti`
 --
 ALTER TABLE `bukti`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `cart`
+-- AUTO_INCREMENT untuk tabel `cart`
 --
 ALTER TABLE `cart`
   MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `cart_item`
+-- AUTO_INCREMENT untuk tabel `cart_item`
 --
 ALTER TABLE `cart_item`
   MODIFY `id_cart_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- AUTO_INCREMENT for table `detail_transaksi`
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9141;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `keluhan`
+-- AUTO_INCREMENT untuk tabel `keluhan`
 --
 ALTER TABLE `keluhan`
   MODIFY `id_keluhan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `rekomendasi_produk`
+-- AUTO_INCREMENT untuk tabel `rekomendasi_produk`
 --
 ALTER TABLE `rekomendasi_produk`
   MODIFY `id_rekomendasi_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=509;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `bukti`
+-- Ketidakleluasaan untuk tabel `bukti`
 --
 ALTER TABLE `bukti`
   ADD CONSTRAINT `bukti_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`);
 
 --
--- Constraints for table `cart`
+-- Ketidakleluasaan untuk tabel `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cart_item`
+-- Ketidakleluasaan untuk tabel `cart_item`
 --
 ALTER TABLE `cart_item`
   ADD CONSTRAINT `cart_item_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cart_item_ibfk_2` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id_cart`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `detail_transaksi`
+-- Ketidakleluasaan untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
   ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_transaksi_ibfk_2` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `keluhan`
+-- Ketidakleluasaan untuk tabel `keluhan`
 --
 ALTER TABLE `keluhan`
   ADD CONSTRAINT `keluhan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `keluhan_ibfk_2` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `produk`
+-- Ketidakleluasaan untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `produk_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rekomendasi_produk`
+-- Ketidakleluasaan untuk tabel `rekomendasi_produk`
 --
 ALTER TABLE `rekomendasi_produk`
   ADD CONSTRAINT `rekomendasi_produk_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rekomendasi_produk_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
