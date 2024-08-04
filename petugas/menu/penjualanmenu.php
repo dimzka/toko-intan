@@ -8,13 +8,15 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item">
-            <a href="index.php?page=dashboard" class="nav-link <?php echo $current_page == 'dashboard' ? 'active' : ''; ?>">
+            <a href="index.php?page=dashboard"
+                class="nav-link <?php echo $current_page == 'dashboard' ? 'active' : ''; ?>">
                 <i class="nav-icon fas fa-th"></i>
                 <p>Dashboard</p>
             </a>
         </li>
         <li class="nav-item menu-open">
-            <a href="#" class="nav-link <?php echo in_array($current_page, ['data-admin', 'data-pelanggan']) ? 'active' : ''; ?>">
+            <a href="#"
+                class="nav-link <?php echo in_array($current_page, ['data-admin', 'data-pelanggan']) ? 'active' : ''; ?>">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                     Kelola
@@ -23,27 +25,38 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="index.php?page=data-transaksi" class="nav-link <?php echo $current_page == 'data-transaksi' ? 'active' : ''; ?>">
+                    <a href="index.php?page=data-transaksi"
+                        class="nav-link <?php echo $current_page == 'data-transaksi' ? 'active' : ''; ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Laporan Transaksi</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?page=data-produk" class="nav-link <?php echo $current_page == 'data-produk' ? 'active' : ''; ?>">
+                    <a href="index.php?page=data-produk"
+                        class="nav-link <?php echo $current_page == 'data-produk' ? 'active' : ''; ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Produk</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?page=data-kategori" class="nav-link <?php echo $current_page == 'data-kategori' ? 'active' : ''; ?>">
+                    <a href="index.php?page=data-kategori"
+                        class="nav-link <?php echo $current_page == 'data-kategori' ? 'active' : ''; ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?page=data-keluhan" class="nav-link <?php echo $current_page == 'data-keluhan' ? 'active' : ''; ?>">
+                    <a href="index.php?page=data-keluhan"
+                        class="nav-link <?php echo $current_page == 'data-keluhan' ? 'active' : ''; ?>">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Keluhan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.php?page=validate-transaksi"
+                        class="nav-link <?php echo $current_page == 'validate-transaksi' ? 'active' : ''; ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Validasi Transaksi</p>
                     </a>
                 </li>
             </ul>

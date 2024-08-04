@@ -30,29 +30,28 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', function() {
                 const productId = this.getAttribute('data-id');
                 fetch('remove_from_cart.php?id_produk=' + encodeURIComponent(productId), {
-                    method: 'GET'
-                })
-                .then(response => response.text())
-                .then(() => {
-                    updateCartDropdown(); 
-                })
-                .catch(error => console.error('Error:', error));
+                        method: 'GET'
+                    })
+                    .then(response => response.text())
+                    .then(() => {
+                        updateCartDropdown();
+                    })
+                    .catch(error => console.error('Error:', error));
             });
         });
     }
 
-    updateCartDropdown(); 
+    updateCartDropdown();
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
     $('.product-carousel').slick({
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 3,
         slidesToScroll: 1,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
@@ -71,4 +70,8 @@ $(document).ready(function(){
 });
 </script>
 </body>
+<footer style="background-color: #f8f9fa; padding: 10px; text-align: center; margin-top: 20px;">
+    <p style="margin: 0; color: #6c757d;">&copy; 2024 PD.Intan . All rights reserved.</p>
+</footer>
+
 </html>

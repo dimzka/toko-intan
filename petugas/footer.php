@@ -1,12 +1,12 @@
 <footer class="main-footer">
     PD INTAN
-  </footer>
+</footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -16,7 +16,7 @@
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+$.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -58,19 +58,42 @@
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
-  $(function () {
+$(function() {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        order: [
+            [6, 'desc']
+        ],
+        language: {
+            "sEmptyTable": "Tidak ada data yang tersedia pada tabel ini",
+            "sProcessing": "Sedang memproses...",
+            "sLengthMenu": "Tampilkan _MENU_ data",
+            "sZeroRecords": "Tidak ditemukan data yang sesuai",
+            "sInfo": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+            "sInfoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
+            "sInfoFiltered": "(disaring dari _MAX_ data keseluruhan)",
+            "sInfoPostFix": "",
+            "sSearch": "Cari:",
+            "sUrl": "",
+            "oPaginate": {
+                "sFirst": "Pertama",
+                "sPrevious": "Sebelumnya",
+                "sNext": "Selanjutnya",
+                "sLast": "Terakhir"
+            }
+        }
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
     });
-  });
+});
 </script>
